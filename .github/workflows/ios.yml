@@ -1,0 +1,21 @@
+name: android
+
+on: push
+
+jobs:
+  main:
+    runs-on: macos-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version-file: flutter_application/pubspec.yaml
+      - run: flutter pub get
+        working-directory: flutter_application
+      - run: flutter test
+        working-directory: flutter_application
+      - run: flutter build ios --release --no-codesign
+        working-directory: flutter_application
