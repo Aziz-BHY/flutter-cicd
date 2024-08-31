@@ -13,8 +13,11 @@ jobs:
         with:
           channel: stable
           flutter-version-file: flutter_application/pubspec.yaml
-      - run: cd flutter_application
-      - run: cd flutter_application && flutter pub get
-      - run: cd flutter_application && flutter test
-      - run: cd flutter_application && flutter build apk
-      - run: cd flutter_application && flutter build appbundle
+      - run: flutter pub get
+        working-directory: flutter_application
+      - run: flutter test
+        working-directory: flutter_application
+      - run: flutter build apk
+        working-directory: flutter_application
+      - run: flutter build appbundle
+        working-directory: flutter_application
