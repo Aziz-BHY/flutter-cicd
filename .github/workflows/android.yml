@@ -12,7 +12,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version-file: flutter_application/pubspec.yaml
+          flutter-version: 3.5.1
       - run: flutter pub get
       - run: flutter test
       - run: flutter build apk
